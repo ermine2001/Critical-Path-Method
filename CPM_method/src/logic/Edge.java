@@ -13,6 +13,7 @@ public class Edge {
         this.toNode = toNode;
         this.weight = weight;
     }
+
     public int getWeight() {
         return weight;
     }
@@ -32,9 +33,9 @@ public class Edge {
         Edge edge = (Edge) o;
         return weight == edge.weight && Objects.equals(fromNode, edge.fromNode) && Objects.equals(toNode, edge.toNode);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(weight, fromNode, toNode);
-    }
 }
+   // @Override
+   // public int hashCode() {
+      //  return Objects.hash(weight, fromNode, toNode);
+  //  }
+//}

@@ -74,7 +74,7 @@ public class Node {
         return id == node.id;
     }
 
-<<<<<<< HEAD
+
     @Override
     public int hashCode() {
         return Objects.hash(id, earliestStartTime, latestStartTime, x, y, outgoingEdges);
@@ -100,6 +100,5 @@ public class Node {
     public void setTimeReserve(int timeReserve) {
         this.timeReserve = timeReserve;
     }
-=======
->>>>>>> fb1260275b5d48ca90a3cda4b474bd3b6de39232
+
 }
