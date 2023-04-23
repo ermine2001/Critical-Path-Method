@@ -15,7 +15,11 @@ public class GraphVisualization extends JFrame {
     private JPanel controlPanel;
     private JTextField nodeInputField1;
     private JTextField nodeInputField2;
+    private JTextField nodeInputField3;
+    private JTextField nodeInputFieldX;
+    private JTextField nodeInputFieldY;
     private JButton addEdgeButton;
+    private JButton changePosButton;
 
     private Map<Character, Node> nodeMap;
     private ArrayList<Edge> edges; // bylo list
@@ -30,7 +34,11 @@ public class GraphVisualization extends JFrame {
         controlPanel = new JPanel();
         nodeInputField1 = new JTextField(2);
         nodeInputField2 = new JTextField(2);
+        nodeInputField3 = new JTextField(2);
+        nodeInputFieldX = new JTextField(4);
+        nodeInputFieldY = new JTextField(4);
         addEdgeButton = new JButton("Add Edge");
+        changePosButton = new JButton("Chage node position");
 
         controlPanel.add(new JLabel("Node 1:"));
         controlPanel.add(nodeInputField1);
@@ -38,10 +46,18 @@ public class GraphVisualization extends JFrame {
         controlPanel.add(nodeInputField2);
         controlPanel.add(addEdgeButton);
 
+        controlPanel.add(new JLabel("Node number:"));
+        controlPanel.add(nodeInputField3);
+        controlPanel.add(new JLabel("X:"));
+        controlPanel.add(nodeInputFieldX);
+        controlPanel.add(new JLabel("Y:"));
+        controlPanel.add(nodeInputFieldY);
+        controlPanel.add(changePosButton);
+
         add(graphPanel, BorderLayout.CENTER);
         add(controlPanel, BorderLayout.SOUTH);
 
-        setSize(800, 600);
+        setSize(1280, 720);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -70,6 +86,17 @@ public class GraphVisualization extends JFrame {
                     edges.add(edge);
                     graphPanel.addEdge(edge);
                 }
+            }
+        });
+
+        changePosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f) {
+                char nodeId = nodeInputField3.getText().toUpperCase().charAt(0);
+
+                int Xposition = nodeInputFieldX.getText().toUpperCase().charAt(0);
+                int Yposition = nodeInputFieldY.getText().toUpperCase().charAt(0);
+
             }
         });
     }

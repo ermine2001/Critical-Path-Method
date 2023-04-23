@@ -45,7 +45,7 @@ public class GraphPanel extends JPanel {
             }
 */
         for (Node node : nodes) {
-            g.setColor(Color.WHITE);
+            g.setColor(Color.LIGHT_GRAY);
             int x = node.getX() - Node.NODE_SIZE / 2 + getInsets().left; // dodaj getInsets().left
             int y = node.getY() - Node.NODE_SIZE / 2 + getInsets().top; // dodaj getInsets().top
             g.fillOval(x, y, Node.NODE_SIZE, Node.NODE_SIZE);
