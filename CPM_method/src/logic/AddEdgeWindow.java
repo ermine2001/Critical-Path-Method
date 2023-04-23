@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.lang.String;
+
 public  class AddEdgeWindow extends JFrame {
     private final JLabel fromLabel = new JLabel("From:");
     private final JLabel toLabel = new JLabel("To:");
@@ -16,7 +16,6 @@ public  class AddEdgeWindow extends JFrame {
     private final JButton addButton = new JButton("Add");
     private List<Edge> edges = new ArrayList<Edge>(); // dodane
     private List<Node> nodes = new ArrayList<Node>(); //dodane
-
 
     public AddEdgeWindow() {
         super("Add Edge");
@@ -76,7 +75,6 @@ public  class AddEdgeWindow extends JFrame {
         return null;
     }
 
-
     private boolean isEdgeAlreadyExists(Node from, Node to) {
         for (Edge edge : edges) {
             if ((edge.getFromNode().equals(from) && edge.getToNode().equals(to))
@@ -87,14 +85,7 @@ public  class AddEdgeWindow extends JFrame {
         return false;
     }
 
-
     public static void main(String[] args) {
         new GraphVisualization();
     }
 }
-
-
-
-
-
-

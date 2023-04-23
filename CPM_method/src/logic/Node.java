@@ -7,10 +7,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class Node {
-    private int id;
+    final private int id;
     private List<Edge> outgoingEdges;
     private int earliestStartTime;
     private int latestStartTime;
+    private int timeReserve;
+
     public static final int NODE_SIZE = 50;
     private int x = 640;
     private int y = 360;
@@ -20,16 +22,17 @@ public class Node {
         outgoingEdges = new ArrayList<>();
         earliestStartTime = Integer.MIN_VALUE;
         latestStartTime = Integer.MAX_VALUE;
+        timeReserve = Integer.MAX_VALUE;
     }
 
     public int getId() {
         return id;
     }
 
-
     public List<Edge> getOutgoingEdges() {
         return outgoingEdges;
     }
+
     public int getX() {
         return x;
     }
@@ -71,4 +74,32 @@ public class Node {
         return id == node.id;
     }
 
+<<<<<<< HEAD
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, earliestStartTime, latestStartTime, x, y, outgoingEdges);
+    }
+
+    public void showNodeInfo()
+    {
+        System.out.println("Node with id number: " + this.id + "\nEarliest start time:" + this.earliestStartTime +
+                "\nLatest start time:" + this.latestStartTime + "\nAll outgoing Edges From that Node:");
+        listAllOutgoingEdges(outgoingEdges);
+    }
+
+    public void listAllOutgoingEdges(List<Edge> edges) {
+        for (var edge : edges) {
+            System.out.println(edge.toNode + " -> " + edge.toNode);
+        }
+    }
+
+    public int getTimeReserve() {
+        return timeReserve;
+    }
+
+    public void setTimeReserve(int timeReserve) {
+        this.timeReserve = timeReserve;
+    }
+=======
+>>>>>>> fb1260275b5d48ca90a3cda4b474bd3b6de39232
 }
