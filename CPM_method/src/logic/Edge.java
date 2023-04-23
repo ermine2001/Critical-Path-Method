@@ -3,6 +3,7 @@ package logic;
 import java.util.Objects;
 
 public class Edge {
+
     private int weight;
     public Node fromNode;
     public Node toNode;
@@ -12,8 +13,6 @@ public class Edge {
         this.toNode = toNode;
         this.weight = weight;
     }
-
-
     public int getWeight() {
         return weight;
     }

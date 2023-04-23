@@ -37,6 +37,7 @@ public class Main {
         CPMCalculator cpmCalculator = new CPMCalculator(nodes);
         cpmCalculator.calculateEarliestStartTimes();
         cpmCalculator.calculateLatestStartTimes();
+        cpmCalculator.calculateTimeReserved();
         List<Node> criticalPath = cpmCalculator.getCriticalPath();
 
         System.out.println("Critical path:");
