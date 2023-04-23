@@ -15,6 +15,7 @@ public class GraphVisualization extends JFrame {
     private JPanel controlPanel;
     private JTextField nodeInputField1;
     private JTextField nodeInputField2;
+    private JTextField weightfield1;
     private JButton addEdgeButton;
 
     private Map<Character, Node> nodeMap;
@@ -30,13 +31,18 @@ public class GraphVisualization extends JFrame {
         controlPanel = new JPanel();
         nodeInputField1 = new JTextField(2);
         nodeInputField2 = new JTextField(2);
+        weightfield1 = new JTextField(2);
         addEdgeButton = new JButton("Add Edge");
 
         controlPanel.add(new JLabel("Node 1:"));
         controlPanel.add(nodeInputField1);
         controlPanel.add(new JLabel("Node 2:"));
         controlPanel.add(nodeInputField2);
+        controlPanel.add(new JLabel("Weight (time of activity)"));
+
+        controlPanel.add(weightfield1);
         controlPanel.add(addEdgeButton);
+
 
         add(graphPanel, BorderLayout.CENTER);
         add(controlPanel, BorderLayout.SOUTH);
@@ -50,6 +56,7 @@ public class GraphVisualization extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 char nodeId1 = nodeInputField1.getText().toUpperCase().charAt(0);
                 char nodeId2 = nodeInputField2.getText().toUpperCase().charAt(0);
+                int weight1 =  Integer.parseInt(weightfield1.getText());
                 Node node1 = nodeMap.get(nodeId1);
                 Node node2 = nodeMap.get(nodeId2);
                 if (node1 == null) {
@@ -66,7 +73,8 @@ public class GraphVisualization extends JFrame {
                     JOptionPane.showMessageDialog(GraphVisualization.this,
                             "An edge between the two nodes already exists.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    Edge edge = new Edge(node1, node2, 5);
+                    Edge edge = new Edge(node1, node2, weight1);
+                  //  System.out.println("waga wpisana w polu -test :"+weight1);
                     edges.add(edge);
                     graphPanel.addEdge(edge);
                 }
