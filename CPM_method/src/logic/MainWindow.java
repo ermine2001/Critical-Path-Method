@@ -16,7 +16,7 @@ public class MainWindow extends JFrame implements ActionListener {
 
         setTitle("Critical Path Visualizer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setSize(1, 600);
 
         // Create form panel
         JPanel formPanel = new JPanel();
@@ -58,7 +58,7 @@ public class MainWindow extends JFrame implements ActionListener {
         formPanel.add(buttonPanel);
 
         // Add form panel to frame
-        add(formPanel, BorderLayout.WEST);
+        add(formPanel, BorderLayout.CENTER);
 
         // Create graph panel
         graphPanel = new GraphPanel();
@@ -99,7 +99,7 @@ public class MainWindow extends JFrame implements ActionListener {
                 graphPanel.addEdge2(fromNodeId, toNodeId, weight);
 
                 // Repaint graph panel
-                graphPanel.repaint();
+                //.repaint(); //!!!
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Invalid input", "Error", JOptionPane.ERROR_MESSAGE);
             } //catch (DuplicateEdgeException ex) {
