@@ -95,15 +95,15 @@ public class MainWindow extends JFrame implements ActionListener {
 
                 // Add edge to graph
 
-                graphPanel.addEdge(fromNodeId, toNodeId, weight);
+                graphPanel.addEdge2(fromNodeId, toNodeId, weight);
 
                 // Repaint graph panel
                 graphPanel.repaint();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Invalid input", "Error", JOptionPane.ERROR_MESSAGE);
-            } catch (DuplicateEdgeException ex) {
-                JOptionPane.showMessageDialog(this, "Edge already exists", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            } //catch (DuplicateEdgeException ex) {
+               // JOptionPane.showMessageDialog(this, "Edge already exists", "Error", JOptionPane.ERROR_MESSAGE);
+           // }
         } else if (e.getSource() == clearButton) {
             // Clear graph
             graphPanel.clear();

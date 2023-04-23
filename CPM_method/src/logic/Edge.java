@@ -13,6 +13,7 @@ public class Edge {
         this.weight = weight;
     }
 
+
     public int getWeight() {
         return weight;
     }

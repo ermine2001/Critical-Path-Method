@@ -2,13 +2,9 @@ package logic;
 
 import java.awt.*;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 public class GraphPanel extends JPanel {
 
     public List<Node> nodes;
@@ -25,10 +21,17 @@ public class GraphPanel extends JPanel {
     }
 
     public void addEdge(Edge edge) {
+
         edges.add(edge);
         repaint();
     }
-
+    public void addEdge2(Integer from, Integer to, Integer w) {
+        Node nodefrom = new Node(from);
+        Node nodeto = new Node(to);
+Edge edge = new Edge(nodefrom, nodeto,  w);
+        edges.add(edge);
+        repaint();
+    }
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

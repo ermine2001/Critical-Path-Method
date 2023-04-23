@@ -4,6 +4,7 @@ import logic.Edge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Node {
     private int id;
@@ -56,4 +57,14 @@ public class Node {
     public void setLatestStartTime(int latestStartTime) {
         this.latestStartTime = latestStartTime;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Node node)) return false;
+        return id == node.id;
+    }
+
+
+
 }
