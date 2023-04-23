@@ -22,7 +22,7 @@ public  class AddEdgeWindow extends JFrame {
         super("Add Edge");
         setLayout(new GridLayout(4, 2));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
+        setPreferredSize(new Dimension(1000, 500)); // ustawienie preferowanej wielkości okna
         add(fromLabel);
         add(fromField);
         add(toLabel);

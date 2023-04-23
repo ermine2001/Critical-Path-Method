@@ -13,6 +13,7 @@ public class MainWindow extends JFrame implements ActionListener {
     private GraphPanel graphPanel;
 
     public MainWindow() {
+
         setTitle("Critical Path Visualizer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
@@ -61,7 +62,7 @@ public class MainWindow extends JFrame implements ActionListener {
 
         // Create graph panel
         graphPanel = new GraphPanel();
-
+        graphPanel.setPreferredSize(new Dimension(800, 600));
         // Add graph panel to frame
         add(graphPanel, BorderLayout.CENTER);
 
@@ -114,6 +115,7 @@ public class MainWindow extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
+
         new MainWindow();
     }
 }
