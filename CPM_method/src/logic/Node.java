@@ -100,5 +100,8 @@ public class Node {
     public void setTimeReserve(int timeReserve) {
         this.timeReserve = timeReserve;
     }
+    public boolean isCritical() {
+        return getEarliestStartTime() == getLatestStartTime();
+    }
 
 }

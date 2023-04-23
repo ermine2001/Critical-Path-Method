@@ -45,9 +45,12 @@ public class Main {
             System.out.println(node.getId());
         }
         for (Node node : nodes) {
-            System.out.println("Zdarzenie #" + (node.getId() + 1) + ":");
+            System.out.println("ID:  #" + (node.getId() + 1) + ":");
             System.out.println("Najwcześniejszy czas rozpoczęcia: " + node.getEarliestStartTime());
             System.out.println("Najpóźniejszy czas rozpoczęcia: " + node.getLatestStartTime());
+            System.out.println("Rezerwa czasowa: " + node.getTimeReserve());
+            System.out.println("Należy do ścieżki krytycznej: " + node.isCritical());
+
             System.out.println();
         }
     }
