@@ -11,17 +11,21 @@ public class Node {
     private List<Edge> outgoingEdges;
     private int earliestStartTime;
     private int latestStartTime;
+    private int earliestEndTime;
+    private int latestEndTime;
     private int timeReserve;
 
     public static final int NODE_SIZE = 50;
-    private int x = 640;
-    private int y = 360;
+    private int x;
+    private int y;
 
     public Node(int id) {
         this.id = id;
         outgoingEdges = new ArrayList<>();
         earliestStartTime = Integer.MIN_VALUE;
         latestStartTime = Integer.MAX_VALUE;
+        earliestEndTime = Integer.MIN_VALUE;
+        latestEndTime = Integer.MAX_VALUE;
         timeReserve = Integer.MAX_VALUE;
     }
 
@@ -67,18 +71,7 @@ public class Node {
         this.latestStartTime = latestStartTime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Node node)) return false;
-        return id == node.id;
-    }
 
-<<<<<<< HEAD
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, earliestStartTime, latestStartTime, x, y, outgoingEdges);
-    }
 
     public void showNodeInfo()
     {
@@ -93,6 +86,10 @@ public class Node {
         }
     }
 
+    public boolean isCritical() {
+        return getEarliestStartTime() == getLatestStartTime();
+    }
+
     public int getTimeReserve() {
         return timeReserve;
     }
@@ -100,6 +97,27 @@ public class Node {
     public void setTimeReserve(int timeReserve) {
         this.timeReserve = timeReserve;
     }
-=======
->>>>>>> fb1260275b5d48ca90a3cda4b474bd3b6de39232
+
+    public int getEarliestEndTime() {
+        return earliestEndTime;
+    }
+
+    public void setEarliestEndTime(int earliestEndTime) {
+        this.earliestEndTime = earliestEndTime;
+    }
+
+    public void setLatestEndTime(int latestEndTime) {
+        this.latestEndTime = latestEndTime;
+    }
+
+    public int getLatestEndTime() {
+        return latestEndTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Node node)) return false;
+        return id == node.id;
+    }
 }

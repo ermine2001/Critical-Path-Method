@@ -22,14 +22,13 @@ public class CPMCalculator {
                 Node toNode = edge.getToNode();
                 int earliestStartTime = node.getEarliestStartTime() +
 
-                edge.getWeight();
+                        edge.getWeight();
                 if (toNode.getEarliestStartTime() < earliestStartTime) {
                     toNode.setEarliestStartTime(earliestStartTime);
                 }
             }
         }
     }
-
 
     public void calculateLatestStartTimes() {
         nodes.get(nodes.size() - 1).setLatestStartTime(nodes.get(nodes.size() - 1).getEarliestStartTime());
@@ -45,10 +44,22 @@ public class CPMCalculator {
         }
     }
 
-    public void calculateTimeReserved()
-    {
+    public void calculateTimeReserved() {
         for (Node node : nodes) {
             node.setTimeReserve(node.getLatestStartTime() - node.getEarliestStartTime());
+        }
+    }
+
+    public void calculateEarliestEndTimes() {
+        for (Node node : nodes){
+            node.setEarliestEndTime(node.getEarliestStartTime() + node.getTimeReserve());
+        }
+    }
+
+    public void calculateLatestEndTimes()
+    {
+        for (Node node : nodes){
+            node.setLatestEndTime(node.getLatestStartTime() + node.getTimeReserve());
         }
     }
 

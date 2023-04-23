@@ -9,8 +9,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Node a = new Node(0);
         Node b = new Node(1);
+        Node a = new Node(0);
         Node c = new Node(2);
         Node d = new Node(3);
         Node e = new Node(4);
@@ -38,11 +38,23 @@ public class Main {
         cpmCalculator.calculateEarliestStartTimes();
         cpmCalculator.calculateLatestStartTimes();
         cpmCalculator.calculateTimeReserved();
+        cpmCalculator.calculateEarliestEndTimes();
+        cpmCalculator.calculateLatestEndTimes();
         List<Node> criticalPath = cpmCalculator.getCriticalPath();
 
         System.out.println("Critical path:");
         for (Node node : criticalPath) {
             System.out.println(node.getId());
+        }
+        for (Node node : nodes) {
+            System.out.println("ID:  #" + (node.getId() + 1) + ":");
+            System.out.println("Najwcześniejszy czas rozpoczęcia: " + node.getEarliestStartTime());
+            System.out.println("Najpóźniejszy czas rozpoczęcia: " + node.getLatestStartTime());
+            System.out.println("Rezerwa czasowa: " + node.getTimeReserve());
+            System.out.println("Najwcześniejszy czas zakończenia: " + node.getEarliestEndTime());
+            System.out.println("Najpóźniejszy czas zakończenia: " + node.getLatestEndTime());
+            System.out.println("Należy do ścieżki krytycznej: " + node.isCritical());
+            System.out.println();
         }
     }
 }
