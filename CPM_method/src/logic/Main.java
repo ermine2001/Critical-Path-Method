@@ -43,12 +43,6 @@ public class Main {
         for (Node node : criticalPath) {
             System.out.println(node.getId());
         }
-        for (Node node : nodes) {
-            System.out.println("Zdarzenie #" + (node.getId() + 1) + ":");
-            System.out.println("Najwcześniejszy czas rozpoczęcia: " + node.getEarliestStartTime());
-            System.out.println("Najpóźniejszy czas rozpoczęcia: " + node.getLatestStartTime());
-            System.out.println();
-        }
     }
 }
 

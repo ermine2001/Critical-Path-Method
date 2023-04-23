@@ -12,8 +12,8 @@ public class Node {
     private int earliestStartTime;
     private int latestStartTime;
     public static final int NODE_SIZE = 50;
-    private int x;
-    private int y;
+    private int x = 640;
+    private int y = 360;
 
     public Node(int id) {
         this.id = id;
@@ -36,6 +36,12 @@ public class Node {
 
     public int getY() {
         return y;
+    }
+
+    public void changePosition(int xPos, int yPos)
+    {
+        this.x = xPos;
+        this.y = yPos;
     }
 
     public void addOutgoingEdge(Edge edge) {
@@ -64,7 +70,5 @@ public class Node {
         if (!(o instanceof Node node)) return false;
         return id == node.id;
     }
-
-
 
 }

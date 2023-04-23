@@ -47,10 +47,11 @@ Edge edge = new Edge(nodefrom, nodeto,  w);
                 g.drawString(String.valueOf(node.getId()), node.getX() - 5, node.getY() + 5);
             }
 
-*/    for (Node node : nodes) {
-            g.setColor(Color.WHITE);
-            int x = node.getX() - Node.NODE_SIZE / 2 + getInsets().left + getWidth()/2; // dodaj getWidth()/2 i getInsets().left
-            int y = node.getY() - Node.NODE_SIZE / 2 + getInsets().top + getHeight()/2; // dodaj getHeight()/2 i getInsets().top
+*/
+        for (Node node : nodes) {
+            g.setColor(Color.LIGHT_GRAY);
+            int x = node.getX() - Node.NODE_SIZE / 2 + getInsets().left; // dodaj getInsets().left
+            int y = node.getY() - Node.NODE_SIZE / 2 + getInsets().top; // dodaj getInsets().top
             g.fillOval(x, y, Node.NODE_SIZE, Node.NODE_SIZE);
             g.setColor(Color.BLACK);
             g.drawOval(x, y, Node.NODE_SIZE, Node.NODE_SIZE);
