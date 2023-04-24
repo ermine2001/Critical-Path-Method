@@ -19,9 +19,11 @@ public class Node {
     public static final int NODE_SIZE = 50;
     private int x = 640;
     private int y = 360;
+    private String name;
 
     public Node(int id) {
         this.id = id;
+        this.name = getName();
         outgoingEdges = new ArrayList<>();
         incomingEdges = new ArrayList<>();
         earliestStartTime = Integer.MIN_VALUE;
@@ -126,6 +128,18 @@ public class Node {
     }
     public boolean isCritical() {
         return getEarliestStartTime() == getLatestStartTime();
+    }
+    public static Node getNodeById(int id, List<Node> nodes) {
+        for (Node node : nodes) {
+            if (node.getId() == id) {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    public String getName() {
+        return name;
     }
 
 

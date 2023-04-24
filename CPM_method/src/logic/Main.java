@@ -1,14 +1,16 @@
 package logic;
 
-import logic.CPMCalculator;
-import logic.Edge;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import static logic.Node.getNodeById;
+
 
 public class Main {
 
     public static void main(String[] args) {
+        /*
         Node a = new Node(0);
         Node b = new Node(1);
         Node c = new Node(2);
@@ -33,6 +35,63 @@ public class Main {
         e.addOutgoingEdge(ef);
 
         List<Node> nodes = Arrays.asList(a, b, c, d, e, f);
+*/
+       // public class Main {
+           // public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                List<Node> nodes = new ArrayList<>();
+                List<Edge> edges = new ArrayList<>();
+
+                System.out.println("Wprowadź dane wejściowe w formacie: from,to,weight (np. a,b,3)");
+                System.out.println("Wpisz 'koniec' aby zakończyć wprowadzanie danych.");
+
+                while (true) {
+                    String input = scanner.nextLine();
+                    if (input.equals("koniec")) {
+                        break;
+                    }
+
+                    String[] parts = input.split(",");
+                    if (parts.length != 3) {
+                        System.out.println("Nieprawidłowy format danych.");
+                        continue;
+                    }
+                    String str1  = parts[0] ;
+                    String str2  = parts[1] ;
+                    String str3  = parts[2] ;
+
+
+                    Integer from = Integer.parseInt(str1);
+                    Integer to = Integer.parseInt(str2);
+                    Integer weight = Integer.parseInt(str3);
+
+                    Node fromNode = getNodeById(from, nodes);
+                    Node toNode = getNodeById(to, nodes);
+
+                    if (fromNode == null) {
+                        fromNode = new Node(nodes.size());
+                        nodes.add(fromNode);
+                    }
+
+                    if (toNode == null) {
+                        toNode = new Node(nodes.size());
+                        nodes.add(toNode);
+                    }
+
+                    Edge edge = new Edge(fromNode, toNode, weight);
+                    edges.add(edge);
+                    fromNode.addOutgoingEdge(edge);
+                }
+
+                for (Node node : nodes) {
+                    for (Edge edge : edges) {
+                        if (edge.getFromNode() == node) {
+                            node.addIncomingEdge(edge);
+                        }
+                    }
+                }
+
+
 
         CPMCalculator cpmCalculator = new CPMCalculator(nodes);
         // najwczesniejsze i najpozniejsze czasy ROZPOCZECIA
