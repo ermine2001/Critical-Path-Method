@@ -62,6 +62,18 @@ public class Main {
 
             System.out.println();
         }
+
+        System.out.println(String.format("%-5s%-25s%-30s%-30s%-30s%-25s%-30s",
+                "ID", "Earliest_Start", "Latest_Start",
+                "Earliest_Finish", "Latest_Finish",
+                "Reserve", "Critical_Path"));
+
+        for (Node node : nodes) {
+            System.out.println(String.format("%-5s%-25s%-30s%-30s%-30s%-25s%-30s",
+                    node.getId() + 1, node.getEarliestStartTime(), node.getLatestStartTime(),
+                    node.getEarliestFinishTime(), node.getLatestFinishTime(),
+                    node.getTimeReserve(), node.isCritical()));
+        }
     }
 }
 
