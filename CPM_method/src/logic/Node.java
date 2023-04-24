@@ -9,8 +9,11 @@ import java.util.Objects;
 public class Node {
     final private int id;
     private List<Edge> outgoingEdges;
+    private List<Edge> incomingEdges;
     private int earliestStartTime;
     private int latestStartTime;
+    private int earliestFinishTime;
+    private int latestFinishTime;
     private int timeReserve;
 
     public static final int NODE_SIZE = 50;
@@ -20,8 +23,11 @@ public class Node {
     public Node(int id) {
         this.id = id;
         outgoingEdges = new ArrayList<>();
+        incomingEdges = new ArrayList<>();
         earliestStartTime = Integer.MIN_VALUE;
         latestStartTime = Integer.MAX_VALUE;
+        earliestFinishTime = Integer.MIN_VALUE;
+        latestFinishTime = Integer.MAX_VALUE;
         timeReserve = Integer.MAX_VALUE;
     }
 
@@ -50,6 +56,9 @@ public class Node {
     public void addOutgoingEdge(Edge edge) {
         outgoingEdges.add(edge);
     }
+    public void addIncomingEdge(Edge incomingEdge) {
+        incomingEdges.add(incomingEdge);
+    }
 
     public int getEarliestStartTime() {
         return earliestStartTime;
@@ -65,6 +74,21 @@ public class Node {
 
     public void setLatestStartTime(int latestStartTime) {
         this.latestStartTime = latestStartTime;
+    }
+    public int getEarliestFinishTime() {
+        return earliestFinishTime;
+    }
+
+    public void setEarliestFinishTime(int earliestFinishTime) {
+        this.earliestFinishTime = earliestFinishTime;
+    }
+
+    public int getLatestFinishTime() {
+        return latestFinishTime;
+    }
+
+    public void setLatestFinishTime(int latestFinishTime) {
+        this.latestFinishTime = latestFinishTime;
     }
 
     @Override
@@ -103,5 +127,6 @@ public class Node {
     public boolean isCritical() {
         return getEarliestStartTime() == getLatestStartTime();
     }
+
 
 }

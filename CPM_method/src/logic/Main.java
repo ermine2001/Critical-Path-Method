@@ -35,9 +35,15 @@ public class Main {
         List<Node> nodes = Arrays.asList(a, b, c, d, e, f);
 
         CPMCalculator cpmCalculator = new CPMCalculator(nodes);
+        // najwczesniejsze i najpozniejsze czasy ROZPOCZECIA
         cpmCalculator.calculateEarliestStartTimes();
         cpmCalculator.calculateLatestStartTimes();
+        // najwczesniejsze i najpozniejsze czasy ZAKONCZENIA
+        cpmCalculator.calculateEarliestFinishTimes();
+        cpmCalculator.calculateLatestFinishTimes();
+        // obliczenie rezerwy czasowej
         cpmCalculator.calculateTimeReserved();
+        //sciezka krytyczna
         List<Node> criticalPath = cpmCalculator.getCriticalPath();
 
         System.out.println("Critical path:");
@@ -48,6 +54,9 @@ public class Main {
             System.out.println("ID:  #" + (node.getId() + 1) + ":");
             System.out.println("Najwcześniejszy czas rozpoczęcia: " + node.getEarliestStartTime());
             System.out.println("Najpóźniejszy czas rozpoczęcia: " + node.getLatestStartTime());
+
+            System.out.println("Najwcześniejszy czas zakonczenia: " + node.getEarliestFinishTime());
+            System.out.println("Najpóźniejszy czas zakonczenia: " + node.getLatestFinishTime());
             System.out.println("Rezerwa czasowa: " + node.getTimeReserve());
             System.out.println("Należy do ścieżki krytycznej: " + node.isCritical());
 

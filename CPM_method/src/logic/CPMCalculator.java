@@ -45,10 +45,48 @@ public class CPMCalculator {
         }
     }
 
+
     public void calculateTimeReserved()
     {
         for (Node node : nodes) {
             node.setTimeReserve(node.getLatestStartTime() - node.getEarliestStartTime());
+        }
+    }
+    public void calculateEarliestFinishTimes() {
+        Node lastNode = nodes.get(nodes.size() - 1);
+        lastNode.setEarliestFinishTime(lastNode.getEarliestStartTime());
+        for (int i = nodes.size() - 2; i >= 0; i--) {
+            Node node = nodes.get(i);
+            int earliestFinishTime = Integer.MAX_VALUE;
+            for (Edge edge : node.getOutgoingEdges()) {
+                Node toNode = edge.getToNode();
+                int toNodeEarliestFinishTime = toNode.getEarliestFinishTime();
+                int edgeWeight = edge.getWeight();
+                int finishTime = toNodeEarliestFinishTime - edgeWeight;
+                if (finishTime < earliestFinishTime) {
+                    earliestFinishTime = finishTime;
+                }
+            }
+            node.setEarliestFinishTime(earliestFinishTime);
+        }
+    }
+
+    public void calculateLatestFinishTimes() {
+        Node lastNode = nodes.get(nodes.size() - 1);
+        lastNode.setLatestFinishTime(lastNode.getEarliestFinishTime());
+        for (int i = nodes.size() - 2; i >= 0; i--) {
+            Node node = nodes.get(i);
+            int latestFinishTime = Integer.MAX_VALUE;
+            for (Edge edge : node.getOutgoingEdges()) {
+                Node toNode = edge.getToNode();
+                int toNodeLatestFinishTime = toNode.getLatestFinishTime();
+                int edgeWeight = edge.getWeight();
+                int finishTime = toNodeLatestFinishTime - edgeWeight;
+                if (finishTime < latestFinishTime) {
+                    latestFinishTime = finishTime;
+                }
+            }
+            node.setLatestFinishTime(latestFinishTime);
         }
     }
 
